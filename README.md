@@ -1,6 +1,6 @@
-# Title of Project
+# Tamagotchi Clone
 
-Project Description
+Raise a legally distinct digital creature of your very own.
 
 ## Team members
 - Trenton Bailey
