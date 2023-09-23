@@ -3,8 +3,10 @@
 Project Description
 
 ## Team members
-- Member number one
-- Member number two, etc.
+- Trenton Bailey
+- John Devine
+- Brian Francis
+- Juan Morales-Vargas
 
 ## How to install
 Provide details on how to install, especially of setup is required other than a normal eclipse project setup.
