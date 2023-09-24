@@ -1,11 +1,17 @@
+
 ##TEST to see if commit/push works <--Brian delete from final>
 # Title of Project
 
-Project Description
+# Tamagotchi Clone
+>>>>>>> 9e7e9dfe8e4234c1dd64c83e4d2b6f59957d5eb2
+
+Raise a legally distinct digital creature of your very own.
 
 ## Team members
-- Member number one
-- Member number two, etc.
+- Trenton Bailey
+- John Devine
+- Brian Francis
+- Juan Morales-Vargas
 
 ## How to install
 Provide details on how to install, especially of setup is required other than a normal eclipse project setup.
