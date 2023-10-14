@@ -39,4 +39,21 @@ public class TamagotchiTest {
     assertEquals(newName, paramTamagotchi.getName());
 
   }
+
+  @Test
+  void testDefaultStatus() {
+    // Arrange
+    defaultTamagotchi = new Tamagotchi();
+    String status;
+    Status hunger = new Status("Hunger");
+    Status thirst = new Status("Thirst");
+    Status hygiene = new Status("Hygiene");
+
+    // Act
+    status = hunger.toString() + "\n" + thirst.toString() + "\n" + hygiene.toString() + "\n";
+
+    // Assert
+    assertEquals(status, defaultTamagotchi.getStatus());
+
+  }
 }
