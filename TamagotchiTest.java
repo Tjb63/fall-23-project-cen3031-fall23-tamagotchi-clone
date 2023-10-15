@@ -102,7 +102,7 @@ public class TamagotchiTest {
   public void testFeed(){
     Tamagotchi defaultTamagotchi;
     // Arrange
-    defaultTamagotchi = new Tamagotchi("Name", 1, 100);
+    defaultTamagotchi = new Tamagotchi("Name", 1, 100, 1);
     defaultTamagotchi.hungerIncrement();
     String status;
     Status hunger = new Status("Hunger");
@@ -122,7 +122,7 @@ public class TamagotchiTest {
   public void testFullFeed(){
     Tamagotchi defaultTamagotchi;
     // Arrange
-    defaultTamagotchi = new Tamagotchi("Name", 1, 100);
+    defaultTamagotchi = new Tamagotchi("Name", 1, 100, 1);
     defaultTamagotchi.hungerIncrement();
     String status;
     Status hunger = new Status("Hunger");
@@ -134,6 +134,25 @@ public class TamagotchiTest {
     // Act
     defaultTamagotchi.fullFeed();
     
+    // Assert
+    assertEquals(status, defaultTamagotchi.getStatus());
+  }
+
+  @Test
+  public void testBaseThirstIncrement(){
+    Tamagotchi defaultTamagotchi;
+    // Arrange
+    defaultTamagotchi = new Tamagotchi();
+    String status;
+    Status hunger = new Status("Hunger");
+    Status thirst = new Status("Thirst");
+    Status hygiene = new Status("Hygiene");
+
+    // Act
+    thirst.setValue(1);
+    status = hunger.toString() + "\n" + thirst.toString() + "\n" + hygiene.toString() + "\n";
+    defaultTamagotchi.thirstIncrement();
+
     // Assert
     assertEquals(status, defaultTamagotchi.getStatus());
   }

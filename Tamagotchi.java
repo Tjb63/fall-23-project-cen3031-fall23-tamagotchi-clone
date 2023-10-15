@@ -6,6 +6,7 @@ public class Tamagotchi {
   private String name;
   private double effectMultiplier;
   private int baseHunger;
+  private int baseThirst;
 
   // Status fields, probably needs to be cleaned up
   private Status hunger;
@@ -23,6 +24,7 @@ public class Tamagotchi {
     hygiene = new Status("Hygiene");
     effectMultiplier = 1;
     baseHunger = 1;
+    baseThirst = 1;
   }
 
   /**
@@ -37,6 +39,7 @@ public class Tamagotchi {
     hygiene = new Status("Hygiene");
     effectMultiplier = 1;
     baseHunger = 1;
+    baseThirst = 1;
   }
 
   /**
@@ -46,13 +49,14 @@ public class Tamagotchi {
    * @param effectMultiplier double to set effectMultiplier to.
    * @param baseHunger nt to set baseHunger to.
    */
-  public Tamagotchi(String name, double effectMultiplier, int baseHunger) {
+  public Tamagotchi(String name, double effectMultiplier, int baseHunger, int baseThirst) {
     this.name = name;
     hunger = new Status("Hunger");
     thirst = new Status("Thirst");
     hygiene = new Status("Hygiene");
     this.effectMultiplier = effectMultiplier;
     this.baseHunger = baseHunger;
+    this.baseThirst = baseThirst;
   }
 
   /**
@@ -101,6 +105,15 @@ public class Tamagotchi {
   }
 
   /**
+   * Setter for base Thirst.
+   * 
+   * @param baseThirst int to set baseThirst to.
+   */
+  public void setBaseThirst(int baseThirst){
+    this.baseThirst = baseThirst;
+  }
+
+  /**
    * Increments the hunger of the tamagochi.
    * It is calculated by geting the old value and adding the multiplication of the baseHunger stat and the effectMultiplier. 
    * 
@@ -134,5 +147,18 @@ public class Tamagotchi {
    */
   public void fullFeed(){
     hunger.setValue(0);
+  }
+
+  /**
+   * Increments the thirst of the tamagochi.
+   * It is calculated by geting the old value and adding the multiplication of the baseThirst stat and the effectMultiplier. 
+   * 
+   */
+  public void thirstIncrement(){
+    int newThirst = thirst.getValue() + (int)(baseThirst * effectMultiplier);
+    if(newThirst > 100){
+      newThirst = 100;
+    }
+    thirst.setValue(newThirst);
   }
 }
