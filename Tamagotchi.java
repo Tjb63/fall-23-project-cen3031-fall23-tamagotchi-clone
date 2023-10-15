@@ -4,6 +4,8 @@ public class Tamagotchi {
    * 
    */
   private String name;
+  private double effectMultiplier;
+  private int baseHunger;
 
   // Status fields, probably needs to be cleaned up
   private Status hunger;
@@ -19,6 +21,8 @@ public class Tamagotchi {
     hunger = new Status("Hunger");
     thirst = new Status("Thirst");
     hygiene = new Status("Hygiene");
+    effectMultiplier = 1;
+    baseHunger = 1;
   }
 
   /**
@@ -31,6 +35,24 @@ public class Tamagotchi {
     hunger = new Status("Hunger");
     thirst = new Status("Thirst");
     hygiene = new Status("Hygiene");
+    effectMultiplier = 1;
+    baseHunger = 1;
+  }
+
+  /**
+   * Parameterized constructor for Tamagotchi class. Sets fields to given values.
+   * 
+   * @param name String to set Tamagotchi's name.
+   * @param effectMultiplier double to set effectMultiplier to.
+   * @param baseHunger nt to set baseHunger to.
+   */
+  public Tamagotchi(String name, double effectMultiplier, int baseHunger) {
+    this.name = name;
+    hunger = new Status("Hunger");
+    thirst = new Status("Thirst");
+    hygiene = new Status("Hygiene");
+    this.effectMultiplier = effectMultiplier;
+    this.baseHunger = baseHunger;
   }
 
   /**
@@ -43,7 +65,7 @@ public class Tamagotchi {
   }
 
   /**
-   * Getter for Tamagotchi name.
+   * Setter for Tamagotchi name.
    * 
    * @param name String to set Tamagotchi's name to.
    */
@@ -58,5 +80,59 @@ public class Tamagotchi {
    */
   public String getStatus() {
     return hunger.toString() + "\n" + thirst.toString() + "\n" + hygiene.toString() + "\n";
+  }
+
+  /**
+   * Setter for effect multiplier.
+   * 
+   * @param effectMultiplier double to set effectMultiplier to.
+   */
+  public void setEffectMultiplier(double effectMultiplier){
+    this.effectMultiplier = effectMultiplier;
+  }
+
+  /**
+   * Setter for base hunger.
+   * 
+   * @param baseHunger int to set baseHunger to.
+   */
+  public void setBaseHunger(int baseHunger){
+    this.baseHunger = baseHunger;
+  }
+
+  /**
+   * Increments the hunger of the tamagochi.
+   * It is calculated by geting the old value and adding the multiplication of the baseHunger stat and the effectMultiplier. 
+   * 
+   */
+  public void hungerIncrement(){
+    int newHunger = hunger.getValue() + (int)(baseHunger * effectMultiplier);
+    if(newHunger > 100){
+      newHunger = 100;
+    }
+    hunger.setValue(newHunger);
+  }
+
+  /**
+   * Decreases the amount hunger of the tamagochi by a certain value.
+   * It is calculated by geting the old value and substracting the selected amount. 
+   * 
+   * @param amount int amount to remove from hunger.
+   */
+  public void feed(int amount){
+    int newHunger = hunger.getValue() - amount;
+    if(newHunger < 0){
+      newHunger = 0;
+    }
+    hunger.setValue(newHunger);
+  }
+
+  /**
+   * Fully feeds tamagotchi.
+   * Hunger is set to 0 
+   * 
+   */
+  public void fullFeed(){
+    hunger.setValue(0);
   }
 }
