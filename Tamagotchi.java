@@ -161,4 +161,27 @@ public class Tamagotchi {
     }
     thirst.setValue(newThirst);
   }
+
+  /**
+   * Decreases the amount thirst of the tamagochi by a certain value.
+   * It is calculated by geting the old value and substracting the selected amount. 
+   * 
+   * @param amount int amount to remove from thirst.
+   */
+  public void water(int amount){
+    int newThirst = thirst.getValue() - amount;
+    if(newThirst < 0){
+      newThirst = 0;
+    }
+    thirst.setValue(newThirst);
+  }
+
+  /**
+   * Fully waters tamagotchi.
+   * Thirst is set to 0 
+   * 
+   */
+  public void fullWater(){
+    thirst.setValue(0);
+  }
 }

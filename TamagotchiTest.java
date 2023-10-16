@@ -156,4 +156,63 @@ public class TamagotchiTest {
     // Assert
     assertEquals(status, defaultTamagotchi.getStatus());
   }
+
+  @Test
+  public void testThirstIncrement(){
+    Tamagotchi defaultTamagotchi;
+    // Arrange
+    defaultTamagotchi = new Tamagotchi("Name", 2, 1, 10);
+    String status;
+    Status hunger = new Status("Hunger");
+    Status thirst = new Status("Thirst");
+    Status hygiene = new Status("Hygiene");
+
+    // Act
+    thirst.setValue(20);
+    status = hunger.toString() + "\n" + thirst.toString() + "\n" + hygiene.toString() + "\n";
+    defaultTamagotchi.thirstIncrement();
+
+    // Assert
+    assertEquals(status, defaultTamagotchi.getStatus());
+  }
+
+  @Test
+  public void testWater(){
+    Tamagotchi defaultTamagotchi;
+    // Arrange
+    defaultTamagotchi = new Tamagotchi("Name", 1, 1, 100);
+    defaultTamagotchi.thirstIncrement();
+    String status;
+    Status hunger = new Status("Hunger");
+    Status thirst = new Status("Thirst");
+    Status hygiene = new Status("Hygiene");
+    thirst.setValue(70);
+    status = hunger.toString() + "\n" + thirst.toString() + "\n" + hygiene.toString() + "\n";
+
+    // Act
+    defaultTamagotchi.water(30);
+    
+    // Assert
+    assertEquals(status, defaultTamagotchi.getStatus());
+  }
+
+  @Test
+  public void testFullWater(){
+    Tamagotchi defaultTamagotchi;
+    // Arrange
+    defaultTamagotchi = new Tamagotchi("Name", 1, 1, 100);
+    defaultTamagotchi.thirstIncrement();
+    String status;
+    Status hunger = new Status("Hunger");
+    Status thirst = new Status("Thirst");
+    Status hygiene = new Status("Hygiene");
+    thirst.setValue(0);
+    status = hunger.toString() + "\n" + thirst.toString() + "\n" + hygiene.toString() + "\n";
+
+    // Act
+    defaultTamagotchi.fullWater();
+    
+    // Assert
+    assertEquals(status, defaultTamagotchi.getStatus());
+  }
 }
