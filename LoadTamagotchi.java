@@ -2,7 +2,8 @@
 public class LoadTamagotchi {
   private Tamagotchi loadedTamagotchi;
 
-  /** Runs the user through the process of loading an existing Tamagotchi
+  /**
+   * Runs the user through the process of loading an existing Tamagotchi
    * 
    */
   public LoadTamagotchi() {
@@ -12,7 +13,9 @@ public class LoadTamagotchi {
     loadedTamagotchi = new Tamagotchi("LoadTesto");
   }
 
-  /** Returns the loaded Tamagotchi
+  /**
+   * Returns the loaded Tamagotchi
+   * 
    * @return Existing Tamagotchi
    */
   public Tamagotchi getTamagotchi() {
