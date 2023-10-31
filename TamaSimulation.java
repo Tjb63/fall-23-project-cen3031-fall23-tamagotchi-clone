@@ -59,6 +59,11 @@ public class TamaSimulation {
         case 5: // Bathe
             printStatus();
             break;
+            
+        case 8:
+        	SaveTamagotchi saveTama = new SaveTamagotchi();
+        	saveTama.save(currTamagotchi.getFullStatus());
+        	break;
 
         case 9: // Exit
           input.close(); // NOTE: Will close the System.in in the main scanner as well. Will need to
@@ -87,6 +92,7 @@ public class TamaSimulation {
       System.out.println("2. Give " + currTamagotchi.getName() + " water");
       System.out.println("3. Play with " + currTamagotchi.getName());
       System.out.println("4. Bathe " + currTamagotchi.getName());
+      System.out.println("8. Save");
       System.out.println("9. Exit");
       System.out.println();
       System.out.print("Enter choice: ");

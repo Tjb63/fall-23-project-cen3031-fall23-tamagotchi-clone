@@ -96,6 +96,15 @@ public class Tamagotchi {
   public String getStatus() {
     return hunger.toString() + "\n" + thirst.toString() + "\n" + hygiene.toString() + "\n" + sadness.toString() + "\n";
   }
+  
+  /**
+   * Get the full status values of the Tamagotchi.
+   * 
+   * @return String representation of Tamagotchi's status
+   */
+  public String getFullStatus() {
+    return name + "\n" + effectMultiplier + "\n" + baseHunger + "\n" + baseThirst + "\n" + baseHygiene + "\n" + baseSadness + "\n" + hunger.getValue() + "\n" + thirst.getValue() + "\n" + hygiene.getValue() + "\n" + sadness.getValue();
+  }
 
   /**
    * Setter for effect multiplier.
@@ -275,5 +284,12 @@ public class Tamagotchi {
    */
   public void fullPlay(){
 	  sadness.setValue(0);
+  }
+  
+  public void setValues(int hunger, int thirst, int hygiene, int sadness){
+	  this.hunger.setValue(hunger);
+	  this.thirst.setValue(thirst);
+	  this.hygiene.setValue(hygiene);
+	  this.sadness.setValue(sadness);
   }
 }
