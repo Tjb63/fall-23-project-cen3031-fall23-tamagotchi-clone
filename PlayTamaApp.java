@@ -9,6 +9,7 @@ public class PlayTamaApp {
 
 		Tamagotchi currTamagotchi = null;
 		TamaSimulation currSimulation = null;
+		Thread timeThread = null;
 
 		System.out.println("Starting Tama App");
 
@@ -43,6 +44,8 @@ public class PlayTamaApp {
 
 		// Tamagotchi is now selected, start simulation
 		currSimulation = new TamaSimulation(currTamagotchi);
+		timeThread = new Thread(new Time(currTamagotchi));
+		timeThread.start();
 		currSimulation.run();
 
 		System.out.println("Thank you for playing!");
