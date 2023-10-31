@@ -10,7 +10,7 @@ public class Time implements Runnable{
 		// TODO Auto-generated method stub
 		while(true) {
 			  try {
-				Thread.sleep(100);
+				Thread.sleep(1000);
 				currTamagotchi.hungerIncrement();
 				currTamagotchi.hygieneIncrement();
 				currTamagotchi.sadnessIncrement();
