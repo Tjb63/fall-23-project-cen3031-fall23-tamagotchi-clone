@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class TamaSimulation {
   private Tamagotchi currTamagotchi;
+  private Boolean running = true;
 
   /**
    * Constructor that creates Simulation with given Tamagotchi.
@@ -21,16 +22,23 @@ public class TamaSimulation {
     Scanner input = new Scanner(System.in);
     // input.useDelimiter("\r");
     int choice;
+    
+    new Thread(() -> {checkDeath();}).start();
 
     // Menu loop
-    while (true) {
+    while (running) {
       
       printStatus();
       choice = 0; // Reset choice variable before use
 
       choice = input.nextInt();
       // input.nextLine();
-
+      
+      if(!running) {
+    	  System.out.println("Your Tamagotchi has died!");
+    	  choice = 9;
+      }
+      
       switch (choice) {
         case 1: // Feed
           currTamagotchi.fullFeed();
@@ -75,9 +83,23 @@ public class TamaSimulation {
       }
 
     }
-
+    
+    input.close();
   }
   
+  private void checkDeath() {
+	  while(running) {
+		  try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  if(currTamagotchi.checkDead()) {
+			  running = false;
+		  }
+	  }
+  }
   
   /**
    * Prints the Tamagotchi status

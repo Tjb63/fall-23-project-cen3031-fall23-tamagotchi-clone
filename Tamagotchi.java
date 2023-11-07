@@ -98,6 +98,21 @@ public class Tamagotchi {
   }
   
   /**
+   * Checks if tama is dead.
+   * 
+   * @return Boolien if dead or not.
+   */
+  public Boolean checkDead() {
+	Boolean death = false;
+	
+	if(hunger.getValue() == 100 || thirst.getValue() == 100) {
+		death = true;
+	}
+	 
+    return death;
+  }
+  
+  /**
    * Get the full status values of the Tamagotchi.
    * 
    * @return String representation of Tamagotchi's status
