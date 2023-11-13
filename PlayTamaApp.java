@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class PlayTamaApp {
+	static Scanner input = new Scanner(System.in);
 	public static void main(String[] args) {
 		// Input variables and setup
-		Scanner input = new Scanner(System.in);
 		// input.useDelimiter("\r");
 		int choice = 0;
 
